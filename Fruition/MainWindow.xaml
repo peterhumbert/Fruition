@@ -14,7 +14,7 @@
     <i:Interaction.Behaviors>
         <Behaviours:BorderlessWindowBehavior/>
     </i:Interaction.Behaviors>
-    
+
 
     <Window.Resources>
         <ResourceDictionary>
@@ -26,7 +26,7 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button>
+            <Button Name="yc" Click="yc_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -40,7 +40,7 @@
                    Text="" />
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Name="slack" Click="slack_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -54,7 +54,7 @@
                    Text="Slack" />
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Name="trello" Click="trello_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -81,12 +81,16 @@
                    VerticalAlignment="Center"
                    Text="Settings" />
                 </StackPanel>
-            </Button>
+              </Button>
         </Controls:WindowCommands>
-        
+
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="302,115,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="button" Grid.ColumnSpan="2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </Controls:MetroWindow>
