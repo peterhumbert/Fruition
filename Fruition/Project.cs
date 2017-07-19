@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Fruition
 {
+    enum Statuses { Abandoned=-1, Queued, Underway, Complete }
+
     class Project
     {
+        private Statuses currentStatus { get; set; } 
+        private bool isComplete { get; set; }
         private DateTime startDate { get; set; }
         private string name { get; set; }
         private string status { get; set; }
