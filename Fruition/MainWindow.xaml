@@ -24,6 +24,31 @@
         </ResourceDictionary>
     </Window.Resources>
 
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout Name="settingsFlyout" IsPinned="False" Header="Settings" Position="Right" Width="400">
+                <Grid Width="300">
+                    <StackPanel Orientation="Horizontal" Width="300">
+                        <StackPanel Width="50">
+                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}">
+                                <Rectangle Width="20" Height="20">
+                                    <Rectangle.Fill>
+                                        <VisualBrush Visual="{StaticResource appbar_social_twitter_hashtag}" Stretch="Fill" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Width="250">
+                            <TextBlock x:Name="slackLabel">Slack channel:</TextBlock>
+                            <TextBox x:Name="slackTextbox"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Name="yc" Click="yc_Click">
@@ -68,7 +93,7 @@
                    Text="Trello" />
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Name="settings" Click="settings_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"

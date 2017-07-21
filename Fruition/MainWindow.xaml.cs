@@ -61,5 +61,13 @@ namespace Fruition
         {
             System.Diagnostics.Process.Start("https://trello.com/");
         }
+
+        private void settings_Click(object sender, RoutedEventArgs e)
+        {
+            if (settingsFlyout.IsOpen)
+                settingsFlyout.IsOpen = false;
+            else
+                settingsFlyout.IsOpen = true;
+        }
     }
 }
