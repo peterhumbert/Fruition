@@ -30,13 +30,13 @@
                 <Grid Width="300">
                     <StackPanel Orientation="Horizontal" Width="300">
                         <StackPanel Width="50">
-                            <Button Width="50" Height="50" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <ToggleButton x:Name="settingsSlackToggle" Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" Click="settingsSlackToggle_Click">
                                 <Rectangle Width="20" Height="20">
                                     <Rectangle.Fill>
                                         <VisualBrush Visual="{StaticResource appbar_social_twitter_hashtag}" Stretch="Fill" />
                                     </Rectangle.Fill>
                                 </Rectangle>
-                            </Button>
+                            </ToggleButton>
                         </StackPanel>
                         <StackPanel Width="250">
                             <TextBlock x:Name="slackLabel">Slack channel:</TextBlock>

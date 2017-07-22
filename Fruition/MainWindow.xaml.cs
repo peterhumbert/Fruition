@@ -69,5 +69,13 @@ namespace Fruition
             else
                 settingsFlyout.IsOpen = true;
         }
+
+        private void settingsSlackToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (settingsSlackToggle.IsChecked.Value)
+                slack.Visibility = Visibility.Visible;
+            else
+                slack.Visibility = Visibility.Collapsed;
+        }
     }
 }
