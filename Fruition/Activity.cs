@@ -8,8 +8,8 @@ namespace Fruition
 {
     class Activity
     {
-        private string label { get; set; }
-        private DateTime timestamp { get; set; }
+        public string label { get; set; }
+        public DateTime timestamp { get; set; }
 
         // CONSTRUCTORS
         public Activity() { }

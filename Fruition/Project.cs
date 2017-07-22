@@ -10,15 +10,14 @@ namespace Fruition
 
     class Project
     {
-        private Statuses currentStatus { get; set; } 
-        private bool isComplete { get; set; }
-        private DateTime startDate { get; set; }
-        private string name { get; set; }
-        private string status { get; set; }
-        private DateTime lastActive { get; set; }
-        private string lastActiveActivity { get; set; }
-        private List<Activity> pastActivities { get; set; }
-        private string category { get; set; }
+        public Statuses currentStatus { get; set; }
+        public bool isComplete { get; set; }
+        public DateTime startDate { get; set; }
+        public string name { get; set; }
+        public DateTime lastActive { get; set; }
+        public string lastActiveActivity { get; set; }
+        public List<Activity> pastActivities { get; set; }
+        public string category { get; set; }
 
         public int getDaysSinceLastActive()
         {
