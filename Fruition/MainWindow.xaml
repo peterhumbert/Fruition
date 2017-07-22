@@ -10,7 +10,7 @@
         mc:Ignorable="d"
                                    
                       
-        Title="Fruition" Height="350" Width="525" Controls:ControlsHelper.ContentCharacterCasing="Upper" TitleCharacterCasing="Normal" Icon="path4144-6.ico">
+        Title="Fruition" Height="450" Width="725" Controls:ControlsHelper.ContentCharacterCasing="Upper" TitleCharacterCasing="Normal" Icon="path4144-6.ico">
     <i:Interaction.Behaviors>
         <Behaviours:BorderlessWindowBehavior/>
     </i:Interaction.Behaviors>
@@ -49,6 +49,18 @@
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
 
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Controls:DropDownButton Width="150" Content="Personal">
+                <Controls:DropDownButton.Items>
+                    <MenuItem>Personall</MenuItem>
+                    <Label>Personal</Label>
+                    <Label>Startup</Label>
+                </Controls:DropDownButton.Items>
+            </Controls:DropDownButton>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+    
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Name="yc" Click="yc_Click">
