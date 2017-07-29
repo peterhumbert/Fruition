@@ -10,7 +10,7 @@
         mc:Ignorable="d"
                                    
                       
-        Title="Fruition" Height="450" Width="725" Controls:ControlsHelper.ContentCharacterCasing="Upper" TitleCharacterCasing="Normal" Icon="path4144-6.ico">
+        Title="Fruition" Height="450" Width="725" Controls:ControlsHelper.ContentCharacterCasing="Upper" TitleCharacterCasing="Normal" Icon="path4144-6.ico" BorderBrush="Orange" BorderThickness="1">
     <i:Interaction.Behaviors>
         <Behaviours:BorderlessWindowBehavior/>
     </i:Interaction.Behaviors>

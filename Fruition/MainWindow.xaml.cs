@@ -29,6 +29,15 @@ namespace Fruition
             clickTimer = new System.Timers.Timer(300);
             clickTimer.Elapsed += new System.Timers.ElapsedEventHandler(evalClicks);
             InitializeComponent();
+            try
+            {
+                //button.Content = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
+                
+            }
+            catch (Exception ex)
+            {
+                button.Content = "null";
+            }
         }
 
         private void evalClicks(object sender, System.Timers.ElapsedEventArgs e)
@@ -43,7 +52,7 @@ namespace Fruition
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            button.Content = "test";
         }
 
         private void yc_Click(object sender, RoutedEventArgs e)
