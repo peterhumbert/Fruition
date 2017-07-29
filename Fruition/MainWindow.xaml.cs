@@ -23,23 +23,24 @@ namespace Fruition
     {
         private System.Timers.Timer clickTimer;
         private int clickCount = 0;
+        private string contextFile;
+        private Context context;
 
-        public MainWindow()
+        public MainWindow(string contextFile)
         {
             clickTimer = new System.Timers.Timer(300);
             clickTimer.Elapsed += new System.Timers.ElapsedEventHandler(evalClicks);
             InitializeComponent();
-            try
-            {
-                button.Content = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
-                
-            }
-            catch (Exception ex)
-            {
-                button.Content = "null";
-            }
 
-            
+            if (contextFile != null)
+            {
+                // deserialize the file
+            }
+            else
+            {
+                // prompt the user to create a new Context
+
+            }
         }
 
         private void evalClicks(object sender, System.Timers.ElapsedEventArgs e)
@@ -87,6 +88,12 @@ namespace Fruition
                 slack.Visibility = Visibility.Visible;
             else
                 slack.Visibility = Visibility.Collapsed;
+        }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // serialize the current Context object
+
         }
     }
 }
