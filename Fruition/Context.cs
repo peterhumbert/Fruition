@@ -10,9 +10,20 @@ namespace Fruition
     {
         public string name { get; set; }
         public List<Project> projects;
-        public bool isForOrg { get; set; }
+        public bool hasSlack { get; set; }
+        public bool hasTrello { get; set; }
         public string slack { get; set; }
         public string trello { get; set; }
+
+        public Context()
+        {
+            projects = new List<Project>();
+        }
+
+        public void addProject(Project proj)
+        {
+            projects.Add(proj);
+        }
 
         public List<String> getProjectNames()
         {

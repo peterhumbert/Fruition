@@ -31,13 +31,15 @@ namespace Fruition
             InitializeComponent();
             try
             {
-                //button.Content = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
+                button.Content = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0];
                 
             }
             catch (Exception ex)
             {
                 button.Content = "null";
             }
+
+            
         }
 
         private void evalClicks(object sender, System.Timers.ElapsedEventArgs e)
