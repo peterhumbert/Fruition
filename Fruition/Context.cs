@@ -20,6 +20,11 @@ namespace Fruition
             projects = new List<Project>();
         }
 
+        public Context(string name) : base()
+        {
+            this.name = name;
+        }
+
         public void addProject(Project proj)
         {
             projects.Add(proj);

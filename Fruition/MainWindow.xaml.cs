@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace Fruition
 {
@@ -31,16 +32,17 @@ namespace Fruition
             clickTimer = new System.Timers.Timer(300);
             clickTimer.Elapsed += new System.Timers.ElapsedEventHandler(evalClicks);
             InitializeComponent();
+            this.contextFile = contextFile;
+        }
 
-            if (contextFile != null)
-            {
-                // deserialize the file
-            }
-            else
-            {
-                // prompt the user to create a new Context
-
-            }
+        private async void showWelcome()
+        {
+            await this.ShowMessageAsync("Welcome to Fruition", 
+                "By default, you have a Personal \"context\" for your personal projects. " +
+                "You can create additional \"contexts\"" + (char)0x2014 + 
+                "maybe for work, school, or open-source projects" + (char)0x2014 + 
+                "in Settings.",
+                MessageDialogStyle.Affirmative);
         }
 
         private void evalClicks(object sender, System.Timers.ElapsedEventArgs e)
@@ -94,6 +96,24 @@ namespace Fruition
         {
             // serialize the current Context object
 
+            Properties.Settings.Default.isFirstRun = false;
+            Properties.Settings.Default.Save();
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (contextFile == null && Properties.Settings.Default.isFirstRun)
+            {
+                showWelcome();
+                this.context = new Context("Personal");
+
+                // load the Context into UI
+            }
+            else
+            {
+                // deserialize the file to load the Context
+                // load the Context into UI
+            }
         }
     }
 }

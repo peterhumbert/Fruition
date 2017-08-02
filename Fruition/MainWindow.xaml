@@ -9,7 +9,8 @@
         xmlns:local="clr-namespace:Fruition"
         mc:Ignorable="d"
                                    
-        Closing="MetroWindow_Closing"              
+        Closing="MetroWindow_Closing"    
+        Loaded="MetroWindow_Loaded"              
         Title="Fruition" Height="450" Width="725" Controls:ControlsHelper.ContentCharacterCasing="Upper" TitleCharacterCasing="Normal" Icon="path4144-6.ico" BorderBrush="Orange" BorderThickness="1">
     <i:Interaction.Behaviors>
         <Behaviours:BorderlessWindowBehavior/>
@@ -53,9 +54,7 @@
         <Controls:WindowCommands>
             <Controls:DropDownButton Width="150" Content="Personal">
                 <Controls:DropDownButton.Items>
-                    <MenuItem>Personall</MenuItem>
                     <Label>Personal</Label>
-                    <Label>Startup</Label>
                 </Controls:DropDownButton.Items>
             </Controls:DropDownButton>
         </Controls:WindowCommands>
