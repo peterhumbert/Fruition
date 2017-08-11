@@ -27,7 +27,7 @@
 
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout Name="settingsFlyout" IsPinned="False" Header="Settings" Position="Right" Width="400">
+            <Controls:Flyout Name="settingsFlyout" IsPinned="False" Header="Settings" Position="Right" Width="400" ClosingFinished="settingsFlyout_ClosingFinished">
                 <Grid Width="300">
                     <StackPanel Orientation="Horizontal" Width="300">
                         <StackPanel Width="50">
@@ -38,10 +38,23 @@
                                     </Rectangle.Fill>
                                 </Rectangle>
                             </ToggleButton>
+                            <ToggleButton x:Name="settingsTrelloToggle" Width="50" Height="50" Style="{DynamicResource MetroCircleToggleButtonStyle}" Click="settingsTrelloToggle_Click">
+                                <Rectangle Width="20" Height="20">
+                                    <Rectangle.Fill>
+                                        <VisualBrush Visual="{StaticResource appbar_social_trello}" Stretch="Fill" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </ToggleButton>
                         </StackPanel>
                         <StackPanel Width="250">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Margin" Value="0,0,0,20"/>
+                                </Style>
+                            </StackPanel.Resources>
                             <TextBlock x:Name="slackLabel">Slack channel:</TextBlock>
                             <TextBox x:Name="slackTextbox"></TextBox>
+                            <TextBlock x:Name="trelloLabel">Trello</TextBlock>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
@@ -62,6 +75,20 @@
     
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
+            <Button Name="newContext" Click="newContext_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Visual="{StaticResource appbar_add}" Stretch="Fill" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="New Context" />
+                </StackPanel>
+            </Button>
             <Button Name="yc" Click="yc_Click">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
@@ -76,7 +103,7 @@
                    Text="" />
                 </StackPanel>
             </Button>
-            <Button Name="slack" Click="slack_Click">
+            <Button Name="slack" Click="slack_Click" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -90,7 +117,7 @@
                    Text="Slack" />
                 </StackPanel>
             </Button>
-            <Button Name="trello" Click="trello_Click">
+            <Button Name="trello" Click="trello_Click" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -121,12 +148,13 @@
         </Controls:WindowCommands>
 
     </Controls:MetroWindow.RightWindowCommands>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="button" Grid.ColumnSpan="2" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-
-    </Grid>
+    <StackPanel Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Button Name="addProject" Width="150" Click="addProject_Click">Add Project</Button>
+        <ListView Name="list" Width="150">
+            <ListViewItem>asdasdad</ListViewItem>
+            <ListViewItem>asdasdad</ListViewItem>
+            <ListViewItem>asdasdad</ListViewItem>
+            <ListViewItem>asdasdad</ListViewItem>
+        </ListView>
+    </StackPanel>
 </Controls:MetroWindow>

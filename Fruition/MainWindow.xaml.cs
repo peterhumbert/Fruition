@@ -55,11 +55,6 @@ namespace Fruition
             clickCount = 0;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            button.Content = "test";
-        }
-
         private void yc_Click(object sender, RoutedEventArgs e)
         {
             clickCount++;
@@ -68,7 +63,7 @@ namespace Fruition
 
         private void slack_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://startup-umn.slack.com/");
+            System.Diagnostics.Process.Start("https://" + context.slack + ".slack.com/");
         }
 
         private void trello_Click(object sender, RoutedEventArgs e)
@@ -87,15 +82,24 @@ namespace Fruition
         private void settingsSlackToggle_Click(object sender, RoutedEventArgs e)
         {
             if (settingsSlackToggle.IsChecked.Value)
+            {
                 slack.Visibility = Visibility.Visible;
+                context.hasSlack = true;
+                context.slack = slackTextbox.Text;
+                
+            }
             else
+            {
                 slack.Visibility = Visibility.Collapsed;
+                context.hasSlack = false;
+                context.slack = null;
+            }
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // serialize the current Context object
-
+            
             Properties.Settings.Default.isFirstRun = false;
             Properties.Settings.Default.Save();
         }
@@ -107,13 +111,37 @@ namespace Fruition
                 showWelcome();
                 this.context = new Context("Personal");
 
-                // load the Context into UI
+                // load the Context into UI 
             }
             else
             {
                 // deserialize the file to load the Context
                 // load the Context into UI
             }
+        }
+
+        private void settingsTrelloToggle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void settingsFlyout_ClosingFinished(object sender, RoutedEventArgs e)
+        {
+            context.slack = slackTextbox.Text;
+        }
+
+        private void newContext_Click(object sender, RoutedEventArgs e)
+        {
+            // serialize current Context
+
+
+        }
+
+        private void addProject_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewItem lvi = (ListViewItem)list.Items.GetItemAt(1);
+            //lvi.Style = "{StaticResource ResourceKey=one}";
+            lvi.Style = (Style)Application.Current.Resources["green"];
         }
     }
 }

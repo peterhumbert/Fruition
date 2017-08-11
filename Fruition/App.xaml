@@ -14,6 +14,18 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Styles for ListView -->
+            <Style x:Key="red" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroListViewItem}">
+                <Setter Property="Background"  Value="Red" />
+            </Style>
+            <Style x:Key="yellow" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroListViewItem}">
+                <Setter Property="Background"  Value="Yellow" />
+            </Style>
+            <Style x:Key="green" TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroListViewItem}">
+                <Setter Property="Background"  Value="Lime" />
+            </Style>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
